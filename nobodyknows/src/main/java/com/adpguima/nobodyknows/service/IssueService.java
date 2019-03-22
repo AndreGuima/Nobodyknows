@@ -1,6 +1,3 @@
-/**
- * 
- */
 package com.adpguima.nobodyknows.service;
 
 import java.util.List;
@@ -33,7 +30,7 @@ public class IssueService {
 		Pageable pages = PageRequest.of(page, count);
 		return issueRepository.findAll(pages);
 	}
-	
+
 	public List<Issue> findByTitleIgnoreCase(String title) {
 		return issueRepository.findByTitleIgnoreCase(title);
 	}

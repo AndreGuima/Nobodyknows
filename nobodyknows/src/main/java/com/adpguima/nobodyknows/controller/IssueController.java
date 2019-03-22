@@ -31,7 +31,7 @@ public class IssueController {
 	public List<Issue> listIssue() {
 		return this.issueService.list();
 	}
-	
+
 	@RequestMapping(value = "/issue/{id}", method = RequestMethod.GET)
 	public Optional<Issue> findByIdIssue(@PathVariable String id) {
 		return this.issueService.findById(id);
@@ -41,7 +41,7 @@ public class IssueController {
 	public Page<Issue> findPageIssue(@PathVariable int page, @PathVariable int count) {
 		return this.issueService.listPageable(page, count);
 	}
-	
+
 	@RequestMapping(value = "/issue/{title}/title", method = RequestMethod.GET)
 	public List<Issue> listIssue(@PathVariable String title) {
 		return this.issueService.findByTitleIgnoreCase(title);
@@ -61,7 +61,5 @@ public class IssueController {
 	public void deleteIssue(@PathVariable String id) {
 		this.issueService.delete(id);
 	}
-
-
 
 }

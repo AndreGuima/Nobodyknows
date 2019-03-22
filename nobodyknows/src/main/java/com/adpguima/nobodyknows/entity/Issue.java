@@ -1,11 +1,13 @@
 package com.adpguima.nobodyknows.entity;
 
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.validation.constraints.NotBlank;
 
 import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 /**
@@ -33,6 +35,17 @@ public class Issue {
 
 	@Column(name = "FINISH_DATE", columnDefinition = "DATE")
 	private Date finishDate;
+
+	@DBRef
+	private List<Requester> requesters;
+
+	public List<Requester> getRequesters() {
+		return requesters;
+	}
+
+	public void setRequesters(List<Requester> requesters) {
+		this.requesters = requesters;
+	}
 
 	public String getId() {
 		return id;
@@ -85,7 +98,8 @@ public class Issue {
 	@Override
 	public String toString() {
 		return "Issue [id=" + id + ", title=" + title + ", description=" + description + ", creationDate="
-				+ creationDate + ", startDate=" + startDate + ", finishDate=" + finishDate + "]";
+				+ creationDate + ", startDate=" + startDate + ", finishDate=" + finishDate + ", requesters="
+				+ requesters + "]";
 	}
 
 }
